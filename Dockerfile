@@ -7,7 +7,8 @@ RUN apk --no-cache add wget ca-certificates && \
     rm -rf /var/cache/apk/*
 
 # Kaniko 바이너리 다운로드 및 설치
-RUN wget -O /kaniko/executor https://github.com/GoogleContainerTools/kaniko/releases/download/v1.6.0/kaniko-linux-amd64 && \
+RUN mkdir -p /kaniko && \
+    wget -O /kaniko/executor https://github.com/GoogleContainerTools/kaniko/releases/download/v1.6.0/kaniko-linux-amd64 && \
     chmod +x /kaniko/executor
 
 # 필요한 환경 변수 설정 (옵션)
